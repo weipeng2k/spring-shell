@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.murdock.books</groupId>
+		<artifactId>spring-shell</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>cli-boot</artifactId>
+	<packaging>jar</packaging>
+	<name>cli-boot</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.murdock.books</groupId>
+			<artifactId>cli-bye</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.murdock.books</groupId>
+			<artifactId>cli-hello</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<version>1.9</version>
+				<configuration>
+					<programs>
+						<program>
+							<mainClass>org.springframework.shell.Bootstrap</mainClass>
+							<id>application</id>
+							<commandLineArguments>
+								<commandLineArgument>--disableInternalCommands</commandLineArgument>
+							</commandLineArguments>
+						</program>
+					</programs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
