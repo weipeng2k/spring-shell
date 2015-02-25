@@ -33,7 +33,7 @@ public class HelloCommand implements CommandMarker {
 	 * @return
 	 */
 	@CliCommand(value = "hello", help = "你好！")
-	public String execute(@CliOption(key = "name", help = "输入名称。") String name,
+	public String execute(@CliOption(key = "name", help = "输入名称。", optionContext="a,b,c") String name,
 			@CliOption(key = "label", help = "输入标签。") String label) {
 		if (name == null) {
 			return "请输入名称";
